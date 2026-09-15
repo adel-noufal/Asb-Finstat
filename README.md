@@ -290,11 +290,24 @@ asb-finstat-main/
 
 ---
 
+## 📋 Pipeline Contracts & Team Ownership
+
+The 5-step pipeline uses explicit modular contracts orchestrating language detection, translation, and table extraction:
+
+- **Adel (Steps #3 & #4) — AI Language Detection & Translation Gates:**
+  - **`language_check.py` (`async check_language(path, emit) -> dict`)**: Inspects PDF structure with PyMuPDF/PyPDF (handling AES-encrypted PDFs), calling `MODEL_LANGUAGE_CHECK` to identify language. Routes English documents directly to extraction (#5) and non-English files to translation (#4).
+  - **`translate.py` (`async translate_pdf(path, language, emit) -> Path`)**: Translates non-English PDFs to English text while strictly preserving page boundary markers, using the dual Google Translate / MyMemory translation engine in `pdf_translation.py`.
+- **Sophie (Step #5) — Financial Statement Extractor:**
+  - **`extract.py` (`async extract_statements(path, emit) -> dict`)**: Takes English PDFs or translated text reports, recovering source table grids and exporting `report.json` and `report.xlsx`.
+
+---
+
 ## 👥 Team & Attribution
 
 Developed with ❤️ by **Friendly Strangers** for Hackathon:
-- **Adel**: Language Detection Engine (`#3`), Translation Pipeline (`#4`) & Multilingual PDF processing.
+- **Adel**: AI Language Detection Gate (`#3`), Translation Pipeline Engine (`#4`) & Multilingual PDF Processing.
 - **Sophie**: Financial Statement Extractor Engine (`#5`), Table Localization & Output Generator.
+
 
 ---
 

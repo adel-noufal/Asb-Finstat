@@ -305,7 +305,7 @@ The 5-step pipeline uses explicit modular contracts orchestrating language detec
 ## 👥 Team & Attribution
 
 Developed with ❤️ by **Friendly Strangers** for Hackathon:
-- **Adel**: AI Language Detection Gate (`#3`), Translation Pipeline Engine (`#4`) & Multilingual PDF Processing.
+- **Adel (Me)**: AI Language Detection Gate (`#3`), Translation Pipeline Engine (`#4`) & Multilingual PDF Processing.
 - **Sophie**: Financial Statement Extractor Engine (`#5`), Table Localization & Output Generator.
 
 ### 🙏 Special Thanks & Acknowledgements

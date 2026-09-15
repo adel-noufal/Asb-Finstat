@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+httpx
+pydantic-settings
+pypdf
+cryptography
+PyMuPDF>=1.25.0
+openpyxl>=3.1.5
+Pillow>=10.4.0
+pytesseract>=0.3.13
+deep-translator>=1.11.4

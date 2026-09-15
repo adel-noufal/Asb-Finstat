@@ -1,27 +1,24 @@
-<div align="center">
-
 # 📊 ASB Finstat
 
 ### Real-Time Financial Statement Search, Translation & AI Extraction Engine
 **Built by Team *Friendly Strangers* for Hackathon**
 
-[![Python Version](https://img.shields.io/badge/python-3.13-blue.svg?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![FastAPI](https://img.shields.io/badge/FastAPI-0.141.1-009688.svg?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
-[![React](https://img.shields.io/badge/React-18-61DAFB.svg?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6.svg?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Vite](https://img.shields.io/badge/Vite-5.0-646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
-[![OpenRouter](https://img.shields.io/badge/OpenRouter-API-7C3AED.svg?style=for-the-badge)](https://openrouter.ai/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](LICENSE)
+[![Python Version](https://img.shields.io/badge/python-3.13-blue.svg?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.141.1-009688.svg?style=flat-square&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+[![React](https://img.shields.io/badge/React-18-61DAFB.svg?style=flat-square&logo=react&logoColor=black)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6.svg?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-5.0-646CFF.svg?style=flat-square&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![OpenRouter](https://img.shields.io/badge/OpenRouter-API-7C3AED.svg?style=flat-square)](https://openrouter.ai/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
 
 ---
-
-</div>
 
 ## 📌 Executive Summary
 
 **ASB Finstat** is an autonomous, single-page web application that automates the retrieval, translation, and extraction of corporate financial statements.
 
 Simply select a country and type a company name. An autonomous AI agent pipeline:
+
 1. **Identifies the verified legal entity** across global registries (GLEIF, SEC EDGAR, Wikidata, AI).
 2. **Locates and downloads financial statement PDFs** for the last 3 years.
 3. **Detects document language** (handling encrypted & complex PDFs).
@@ -96,11 +93,11 @@ Every AI step interacts through OpenRouter (`backend/app/openrouter.py`) and is 
 
 | # | Pipeline Step | Core Module | Default Model Config (`.env`) | Owner / Lead |
 | :-: | :--- | :--- | :--- | :-: |
-| **1** | Company Typeahead Fallback | [`company_search.py`](file:///d:/Adel/Projects/asb-finstat-main/backend/app/pipeline/company_search.py) | `MODEL_COMPANY_SEARCH` | — |
-| **2** | Find & Download Statement PDFs | [`find_statements.py`](file:///d:/Adel/Projects/asb-finstat-main/backend/app/pipeline/find_statements.py) | `MODEL_FIND_STATEMENTS` | — |
-| **3** | Language Detection | [`language_check.py`](file:///d:/Adel/Projects/asb-finstat-main/backend/app/pipeline/language_check.py) | `MODEL_LANGUAGE_CHECK` | **Adel** |
-| **4** | PDF Translation to English | [`translate.py`](file:///d:/Adel/Projects/asb-finstat-main/backend/app/pipeline/translate.py) | Google Translate / MyMemory (No key required) | **Adel** |
-| **5** | Financial Table Extraction | [`statement_extractor.py`](file:///d:/Adel/Projects/asb-finstat-main/backend/app/pipeline/statement_extractor.py) | `MODEL_EXTRACT` | **Sophie** |
+| **1** | Company Typeahead Fallback | `backend/app/pipeline/company_search.py` | `MODEL_COMPANY_SEARCH` | — |
+| **2** | Find & Download Statement PDFs | `backend/app/pipeline/find_statements.py` | `MODEL_FIND_STATEMENTS` | — |
+| **3** | Language Detection | `backend/app/pipeline/language_check.py` | `MODEL_LANGUAGE_CHECK` | **Adel** |
+| **4** | PDF Translation to English | `backend/app/pipeline/translate.py` | Google Translate / MyMemory (No key required) | **Adel** |
+| **5** | Financial Table Extraction | `backend/app/pipeline/statement_extractor.py` | `MODEL_EXTRACT` | **Sophie** |
 
 > Downloaded source PDFs land in `backend/data/downloads/<company-slug>-<identity>/` (git-ignored).
 
@@ -108,7 +105,8 @@ Every AI step interacts through OpenRouter (`backend/app/openrouter.py`) and is 
 
 ## 📊 Financial Statement Extraction
 
-The extraction module ([`statement_extractor.py`](file:///d:/Adel/Projects/asb-finstat-main/backend/app/pipeline/statement_extractor.py)):
+The extraction module (`backend/app/pipeline/statement_extractor.py`):
+
 - Reads document layouts using **PyMuPDF**.
 - Locates statement pages and recovers underlying raw source tables.
 - Employs **LLM-assisted page localization** (`EXTRACT_USE_LLM=true`) to pinpoint statement boundaries while preserving exact numeric figures from source tables.
@@ -138,6 +136,7 @@ Run the single startup script from the project root:
 ### 🛠️ Option B: Manual Step-by-Step Setup
 
 #### 1. Backend Setup (FastAPI + Python 3.13)
+
 ```bash
 cd backend
 
@@ -163,13 +162,14 @@ uvicorn app.main:app --reload --port 8000
 ```
 
 #### 2. Frontend Setup (Vite + React + TS)
+
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
 
-Open **[http://localhost:5173](http://localhost:5173)** in your browser.
+Open **http://localhost:5173** in your browser.
 
 ---
 
@@ -308,11 +308,8 @@ Developed with ❤️ by **Friendly Strangers** for Hackathon:
 - **Adel**: AI Language Detection Gate (`#3`), Translation Pipeline Engine (`#4`) & Multilingual PDF Processing.
 - **Sophie**: Financial Statement Extractor Engine (`#5`), Table Localization & Output Generator.
 
-
 ---
 
 ## 📜 License
 
-Distributed under the **MIT License**. See [`LICENSE`](LICENSE) for details.
-#   A s b - F i n s t a t  
- 
+Distributed under the **MIT License**. See [LICENSE](LICENSE) for details.

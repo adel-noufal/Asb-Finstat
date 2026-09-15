@@ -308,8 +308,12 @@ Developed with ❤️ by **Friendly Strangers** for Hackathon:
 - **Adel**: AI Language Detection Gate (`#3`), Translation Pipeline Engine (`#4`) & Multilingual PDF Processing.
 - **Sophie**: Financial Statement Extractor Engine (`#5`), Table Localization & Output Generator.
 
+### 🙏 Special Thanks & Acknowledgements
+Special thanks to **Bashir** for invaluable contributions, leadership, and guidance throughout the development of this project.
+
 ---
 
 ## 📜 License
+
 
 Distributed under the **MIT License**. See [LICENSE](LICENSE) for details.
